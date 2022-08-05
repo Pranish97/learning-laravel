@@ -5,6 +5,7 @@ use App\Http\Controllers\DemoController;
 use App\Http\Controllers\SingleActionController;
 use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\RegistrationController;
+use App\Http\Controllers\CustomerController;
 use App\Models\Customer;
 
 /*
@@ -29,10 +30,6 @@ Route::get('/',[DemoController::class,'index']);
 Route::get('/about',[DemoController::class,'about']);
 Route::get('/course',SingleActionController::class);
 Route::resource('/photo',PhotoController::Class);
-Route::get('/register',[RegistrationController::class,'index']);
-Route::post('/register',[RegistrationController::Class,'register']);
-Route::get('/customer',function(){
-    $customer=Customer::all();
-    echo "<pre>";
-    print_r($customer->toArray());
-});
+Route::get('/register',[CustomerController::class,'index']);
+Route::post('/register',[CustomerController::Class,'store']);
+Route::get('/customer',[CustomerController::class,'index']);

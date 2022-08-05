@@ -27,7 +27,10 @@ class AddColumnsToCustomersTable extends Migration
     public function down()
     {
         Schema::table('customers', function (Blueprint $table) {
-            //
+            $table->dropColumn('points');
+            $table->dropColumn('status');
+           
+
         });
     }
 }
