@@ -12,12 +12,7 @@ class CustomerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        return view('customer');
-            
-        
-    }
+
   
     public function selectAll(Request $request){
         $customer=Customer::all();
@@ -34,7 +29,7 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        //
+        return view('customer');
     }
 
     /**
@@ -68,7 +63,7 @@ class CustomerController extends Controller
         $customer->dob = $request['dob'];
         $customer->password = md5($request['password']);
         $customer->save();
-        return redirect('/customer/view');
+        return redirect('/customer');
             
 
 

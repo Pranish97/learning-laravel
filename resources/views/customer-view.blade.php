@@ -13,8 +13,31 @@
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{url('/home')}}">Home </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url('/register')}}">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url('/customer')}}">Customer <span class="sr-only">(current)</span></a>
+                </li>
 
+            </ul>
+        </div>
+    </nav>
     <div class="container">
+        <a href="{{route('customer.create')}}">
+            <button class="btn btn-primary d-inline-block m-2 float-right">Add</button>
+        </a>
         <table class="table">
             <thead>
                 <tr>
@@ -25,6 +48,8 @@
                     <th>Address</th>
                     <th>Gender</th>
                     <th>DOB</th>
+                    <th>Status</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -45,8 +70,24 @@
                         @endif
                     </td>
                     <td>{{$customers->dob}}</td>
+                    <td>
+                        @if($customers->Status == "1")
+                        <a href="">
+                            <span class="badge badge-success">Active</span </a>
+                            @else
+                            <a href="">
+                                <span class="badge badge-danger">Inctive</span 
+                            </a>
+                            @endif
+
+                    </td>
+
+
+                    <td>
+                        <button class="btn btn-danger">Delete</button>
+                    </td>
+                    @endforeach
                 </tr>
-                @endforeach
 
             </tbody>
         </table>
