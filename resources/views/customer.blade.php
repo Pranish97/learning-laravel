@@ -16,29 +16,29 @@
 <body>
     <div class="container">
         <form action="{{url('/')}}/register" method="post">
-          @csrf
+            @csrf
             <h1 class="text-center">Registration Form</h1>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputEmail4">Name</label>
                     <input type="text" class="form-control" id="name" name="name" placeholder="">
-                   <span class="text-danger">
-                    @error('name')
-                    {{$message}}
-                    @enderror
+                    <span class="text-danger">
+                        @error('name')
+                        {{$message}}
+                        @enderror
 
-</span>
+                    </span>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputPassword4">Email</label>
                     <input type="email" class="form-control" id="email" name="email" placeholder="">
                     <span class="text-danger">
-                    @error('email')
-                    {{$message}}
-                    @enderror
+                        @error('email')
+                        {{$message}}
+                        @enderror
 
-</span>
-                
+                    </span>
+
                 </div>
             </div>
             <div class="form-row">
@@ -46,39 +46,39 @@
                     <label for="inputEmail4">Password</label>
                     <input type="password" class="form-control" id="password" name="password" placeholder="">
                     <span class="text-danger">
-                    @error('password')
-                    {{$message}}
-                    @enderror
+                        @error('password')
+                        {{$message}}
+                        @enderror
 
-</span>
+                    </span>
                 </div>
-               
-                  
-               
+
+
+
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputEmail4">Counrty</label>
                     <input type="text" class="form-control" id="country" name="country" placeholder="">
                     <span class="text-danger">
-                    @error('country')
-                    {{$message}}
-                    @enderror
+                        @error('country')
+                        {{$message}}
+                        @enderror
 
-</span>
-                   
-                    
+                    </span>
+
+
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputPassword4">State</label>
                     <input type="text" class="form-control" id="state" name="state" placeholder="">
                     <span class="text-danger">
-                    @error('state')
-                    {{$message}}
-                    @enderror
+                        @error('state')
+                        {{$message}}
+                        @enderror
 
-</span>
-                    
+                    </span>
+
                 </div>
             </div>
             <div class="form-group ">
@@ -89,8 +89,8 @@
                     {{$message}}
                     @enderror
 
-</span>
-                
+                </span>
+
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
@@ -98,17 +98,17 @@
 
                     <div class="form-check col-md-6">
                         <input class="form-check-input" type="radio" name="gender" id="gender" value="" />
-                        <label class="form-check-label" for="inlineRadio1">Male</label>
+                        <label class="form-check-label" for="inlineRadio1">M</label>
                     </div>
 
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="gender" id="gender" value="" />
-                        <label class="form-check-label" for="inlineRadio2">Female</label>
+                        <label class="form-check-label" for="inlineRadio2">F</label>
                     </div>
 
-                    <div class="form-check col-md-6">
+                    <div class="form-check ">
                         <input class="form-check-input" type="radio" name="gender" id="gender" value="" />
-                        <label class="form-check-label" for="inlineRadio3">Others</label>
+                        <label class="form-check-label" for="inlineRadio3">O</label>
                     </div>
                 </div>
 
@@ -116,11 +116,11 @@
                     <label for="inputPassword4">DOB</label>
                     <input type="date" class="form-control" id="dob" name="dob" placeholder="">
                     <span class="text-danger">
-                    @error('dob')
-                    {{$message}}
-                    @enderror
+                        @error('dob')
+                        {{$message}}
+                        @enderror
 
-</span>
+                    </span>
                 </div>
             </div>
 

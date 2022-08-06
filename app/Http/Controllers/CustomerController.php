@@ -18,6 +18,14 @@ class CustomerController extends Controller
             
         
     }
+  
+    public function selectAll(Request $request){
+        $customer=Customer::all();
+        echo "<pre>";
+        print_r($customer->toArray());
+       
+
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -43,16 +51,13 @@ class CustomerController extends Controller
             [
                 'name'=>'required',
                 'email'=>'required|email',
-                'password'=>'required|confirmed',
-                'password_confirmation'=>'required',
+                'password'=>'required',
                 'country'=>'required',
                 'state'=>'required',
                 'address'=>'required',
-                'gender'=>'required',
                 'dob'=>'required'
-            ]
-            );
-            
+            ]);
+
         $customer=new Customer;
         $customer->name = $request['name'];
         $customer->email = $request['email'];
@@ -62,15 +67,19 @@ class CustomerController extends Controller
         $customer->country = $request['country'];
         $customer->dob = $request['dob'];
         $customer->password = md5($request['password']);
-        
         $customer->save();
-        
+        return redirect('/customer/view');
             
 
 
 
         
        
+    }
+    public function view(){
+        $customer=Customer::all();
+        $data = compact('customer');
+        return view('customer-view')->with($data);
     }
 
     /**

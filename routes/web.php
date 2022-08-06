@@ -32,4 +32,5 @@ Route::get('/course',SingleActionController::class);
 Route::resource('/photo',PhotoController::Class);
 Route::get('/register',[CustomerController::class,'index']);
 Route::post('/register',[CustomerController::Class,'store']);
-Route::get('/customer',[CustomerController::class,'index']);
+Route::get('/customer',[CustomerController::class,'selectAll']);
+Route::get('/customer/view',[CustomerController::Class,'view']);
