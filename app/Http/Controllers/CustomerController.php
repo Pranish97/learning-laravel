@@ -44,8 +44,9 @@ class CustomerController extends Controller
     public function create()
     {
         $url = url('/register');
+        $customer=new Customer();
         $title = "Registration Form";
-        $data = compact('url','title');
+        $data = compact('url','title','customer');
         return view('customer')->with($data);
     }
 
