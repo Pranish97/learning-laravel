@@ -36,13 +36,13 @@
         </div>
     </nav>
     <div class="container">
-        <form action="{{url('/')}}/register" method="post">
+        <form action="{{$url}}" method="post">
             @csrf
-            <h1 class="text-center">Registration Form</h1>
+            <h1 class="text-center md-4">{{$title}}</h1>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputEmail4">Name</label>
-                    <input type="text" class="form-control" id="name" name="name" placeholder="">
+                    <input type="text" class="form-control" id="name" name="name" placeholder="" value="{{$customer->name}}">
                     <span class="text-danger">
                         @error('name')
                         {{$message}}
@@ -52,7 +52,7 @@
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputPassword4">Email</label>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="" value="{{$customer->email}}">
                     <span class="text-danger">
                         @error('email')
                         {{$message}}
@@ -79,8 +79,8 @@
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="inputEmail4">Counrty</label>
-                    <input type="text" class="form-control" id="country" name="country" placeholder="">
+                    <label for="inputEmail4">Country</label>
+                    <input type="text" class="form-control" id="country" name="country" placeholder="" value="{{$customer->Country}}">
                     <span class="text-danger">
                         @error('country')
                         {{$message}}
@@ -92,7 +92,7 @@
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputPassword4">State</label>
-                    <input type="text" class="form-control" id="state" name="state" placeholder="">
+                    <input type="text" class="form-control" id="state" name="state" placeholder=""  value="{{$customer->State}}">
                     <span class="text-danger">
                         @error('state')
                         {{$message}}
@@ -104,7 +104,7 @@
             </div>
             <div class="form-group ">
                 <label for="inputEmail4">Address</label>
-                <input type="text" class="form-control" id="address" name="address" placeholder="">
+                <input type="text" class="form-control" id="address" name="address" placeholder=""  value="{{$customer->address}}">
                 <span class="text-danger">
                     @error('address')
                     {{$message}}
@@ -118,24 +118,27 @@
                     <label for="inputEmail4">Gender</label>
 
                     <div class="form-check col-md-6">
-                        <input class="form-check-input" type="radio" name="gender" id="gender" value="" />
-                        <label class="form-check-label" for="inlineRadio1">M</label>
+                        <input class="form-check-input" type="radio" name="gender" id="male" value="M" 
+                        {{$customer -> gender == "M" ? "checked" : ""}} >
+                        <label class="form-check-label" for="inlineRadio1">Male</label>
                     </div>
 
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="gender" id="gender" value="" />
-                        <label class="form-check-label" for="inlineRadio2">F</label>
+                        <input class="form-check-input" type="radio" name="gender" id="female" value="F" 
+                        {{$customer -> gender == "F" ? "checked" : ""}}>
+                        <label class="form-check-label" for="inlineRadio2">Female</label>
                     </div>
 
                     <div class="form-check ">
-                        <input class="form-check-input" type="radio" name="gender" id="gender" value="" />
-                        <label class="form-check-label" for="inlineRadio3">O</label>
+                        <input class="form-check-input" type="radio" name="gender" id="other" value="O" 
+                        {{$customer -> gender == "O" ? "checked" : ""}}>
+                        <label class="form-check-label" for="inlineRadio3">Other</label>
                     </div>
                 </div>
 
                 <div class="form-group col-md-6">
                     <label for="inputPassword4">DOB</label>
-                    <input type="date" class="form-control" id="dob" name="dob" placeholder="">
+                    <input type="date" class="form-control" id="dob" name="dob" placeholder=""  value="{{$customer->dob}}">
                     <span class="text-danger">
                         @error('dob')
                         {{$message}}

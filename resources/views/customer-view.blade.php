@@ -86,7 +86,7 @@
                     <td>
                         <!-- <a href="{{url('/customer/delete')}}/{{$customers->customer_id}}"><button class="btn btn-danger">Delete</button></a> -->
                         <a href="{{route('customer.delete',['id'=> $customers -> customer_id])}}"><button class="btn btn-danger">Delete</button></a> 
-                        <button class="btn btn-primary">Edit</button>
+                        <a href="{{route('customer.edit',['id'=> $customers -> customer_id])}}"><button class="btn btn-primary">Edit</button></a>
                     </td>
                     @endforeach
                 </tr>
