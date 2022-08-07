@@ -119,6 +119,11 @@ class CustomerController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $customer = Customer::find($id);
+        if (!is_null($customer)){
+            $customer -> delete();
+        }
+        return redirect('customer');   
+
     }
 }

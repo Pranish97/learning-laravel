@@ -26,14 +26,17 @@ use App\Models\Customer;
     return view('home')->with($data);
 
 });*/
-Route::get('/',[DemoController::class,'index']);
-Route::get('/about',[DemoController::class,'about']);
-Route::get('/course',SingleActionController::class);
-Route::resource('/photo',PhotoController::Class);
+// Route::get('/',[DemoController::class,'index']);
+// Route::get('/about',[DemoController::class,'about']);
+// Route::get('/course',SingleActionController::class);
+// Route::resource('/photo',PhotoController::Class);
+
+
 Route::get('/register',[CustomerController::class,'create'])->name('customer.create');
 Route::post('/register',[CustomerController::Class,'store']);
 Route::get('/customer',[CustomerController::class,'selectAll']);
 Route::get('/customer',[CustomerController::Class,'view']);
+Route::get('customer/delete/{id}',[CustomerController::Class,'destroy'])->name('customer.delete');
 Route::get('/home',function(){
     return view ('index');
 });
