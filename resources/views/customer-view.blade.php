@@ -69,7 +69,7 @@
                         Other
                         @endif
                     </td>
-                    <td>{{$customers->dob}}</td>
+                    <td>{{get_formatted_date($customers->dob, "d-M-Y")}}</td>
                     <td>
                         @if($customers->Status == "1")
                         <a href="">
