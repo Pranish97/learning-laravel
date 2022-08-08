@@ -21,8 +21,6 @@ class CreateCustomersTable extends Migration
             $table->text('address');
             $table->date('dob');
             $table->string('password');
-            $table->boolean('status')->default(1);
-            $table->integer('points'); 
             $table->timestamps();
         });
     }
