@@ -94,6 +94,11 @@ class CustomerController extends Controller
         $data = compact('customer');
         return view('customer-view')->with($data);
     }
+    public function trash(){
+        $customer=Customer::onlyTrashed()->get();
+        $data = compact('customer');
+        return view('customer-trash')->with($data);
+    }
 
     /**
      * Display the specified resource.
@@ -142,6 +147,24 @@ class CustomerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    public function restore($id)
+    {
+        $customer = Customer::withTrashed()->find($id);
+        if (!is_null($customer)){
+            $customer -> restore();
+        }
+        return redirect('customer');   
+
+    }
+    public function forceDelete($id)
+    {
+        $customer = Customer::withTrashed()->find($id);
+        if (!is_null($customer)){
+            $customer -> forceDelete();
+        }
+        return redirect()->back();   
+
+    }
     public function destroy($id)
     {
         $customer = Customer::find($id);
