@@ -41,12 +41,28 @@
         </div>
     </nav>
     <div class="container">
-        <a href="{{route('customer.create')}}">
-            <button class="btn btn-primary d-inline-block m-2 float-right">Add</button>
-        </a>
-        <a href="{{url('/customer/trash')}}">
-            <button class="btn btn-danger d-inline-block m-2 float-right">Move to Trash</button>
-        </a>
+        <div class="row m-2">
+            <form action="" class="col-9">
+                <div class="form-group">
+                    <label for="">Search</label>
+                    <input type="search" name="search" id="" class="form-control" placeholder="Search by Name or email"
+                        aria-describedby="helpId" value={{$search}}>
+                </div>
+                <button class="btn btn-primary">Search</button>
+                <a href="{{url('/customer')}}">
+                    <button class="btn btn-primary" type="button">Reset</button>
+                </a>
+            </form>
+
+            <div class="m-4">
+                <a href="{{route('customer.create')}}">
+                    <button class="btn btn-primary d-inline-block m-2 float-right">Add</button>
+                </a>
+                <a href="{{url('/customer/trash')}}">
+                    <button class="btn btn-danger d-inline-block m-2 float-right">Move to Trash</button>
+                </a>
+            </div>
+        </div>
         <table class="table">
             <thead>
                 <tr>
@@ -85,17 +101,18 @@
                             <span class="badge badge-success">Active</span </a>
                             @else
                             <a href="">
-                                <span class="badge badge-danger">Inctive</span 
-                            </a>
-                            @endif
+                                <span class="badge badge-danger">Inctive</span </a>
+                                @endif
 
                     </td>
 
 
                     <td>
                         <!-- <a href="{{url('/customer/delete')}}/{{$customers->customer_id}}"><button class="btn btn-danger">Delete</button></a> -->
-                        <a href="{{route('customer.delete',['id'=> $customers -> customer_id])}}"><button class="btn btn-danger">Trash</button></a> 
-                        <a href="{{route('customer.edit',['id'=> $customers -> customer_id])}}"><button class="btn btn-primary">Edit</button></a>
+                        <a href="{{route('customer.delete',['id'=> $customers -> customer_id])}}"><button
+                                class="btn btn-danger">Trash</button></a>
+                        <a href="{{route('customer.edit',['id'=> $customers -> customer_id])}}"><button
+                                class="btn btn-primary">Edit</button></a>
                     </td>
                     @endforeach
                 </tr>

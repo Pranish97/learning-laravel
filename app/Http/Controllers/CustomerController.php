@@ -89,9 +89,15 @@ class CustomerController extends Controller
         
        
     }
-    public function view(){
-        $customer=Customer::all();
-        $data = compact('customer');
+    public function view(Request $request){
+        $search = $request['search'] ?? "";
+        if($search !=""){
+            $customer =Customer::where('name' ,'LIKE' , "%$search%")->orWhere('email' ,'LIKE' , "%$search%")->get();
+        }
+        else{
+            $customer=Customer::all();
+        }
+        $data = compact('customer','search');
         return view('customer-view')->with($data);
     }
     public function trash(){
