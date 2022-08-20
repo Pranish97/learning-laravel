@@ -95,7 +95,7 @@ class CustomerController extends Controller
             $customer =Customer::where('name' ,'LIKE' , "%$search%")->orWhere('email' ,'LIKE' , "%$search%")->get();
         }
         else{
-            $customer=Customer::all();
+            $customer=Customer::paginate(15);
         }
         $data = compact('customer','search');
         return view('customer-view')->with($data);

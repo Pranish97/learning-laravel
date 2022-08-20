@@ -66,6 +66,7 @@
         <table class="table">
             <thead>
                 <tr>
+                <th>ID</th>
                     <th>Name</th>
                     <th>Email</th>
                     <th>Country</th>
@@ -80,6 +81,7 @@
             <tbody>
                 @foreach($customer as $customers)
                 <tr>
+                <td>{{$customers->customer_id}}</td>
                     <td>{{$customers->name}}</td>
                     <td>{{$customers->email}}</td>
                     <td>{{$customers->Country}}</td>
@@ -119,7 +121,11 @@
 
             </tbody>
         </table>
+        <div class="row">
+        {{$customer->links()}}
     </div>
+    </div>
+    
 </body>
 
 </html>
