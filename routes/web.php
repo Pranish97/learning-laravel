@@ -35,15 +35,18 @@ use Illuminate\Http\Request;
 
 Route::get('/register',[CustomerController::class,'create'])->name('customer.create');
 Route::post('/register',[CustomerController::Class,'store']);
-Route::get('/customer',[CustomerController::class,'selectAll']);
-Route::get('/customer',[CustomerController::Class,'view']);
-Route::get('/customer/trash',[CustomerController::Class,'trash']);
+Route::group(['prefix'=>'/customer'],function(){
+    Route::get('/',[CustomerController::class,'selectAll']);
+    Route::get('/',[CustomerController::Class,'view']);
+    Route::get('trash',[CustomerController::Class,'trash']);
+    Route::get('delete/{id}',[CustomerController::Class,'destroy'])->name('customer.delete');
+    Route::get('restore/{id}',[CustomerController::Class,'restore'])->name('customer.restore');
+    Route::get('force-delete/{id}',[CustomerController::Class,'forceDelete'])->name('customer.forcedelete');
+    Route::get('edit/{id}',[CustomerController::class,'edit'])->name('customer.edit');
+    Route::post('update/{id}',[CustomerController::class,'update'])->name('customer.update');
 
-Route::get('customer/delete/{id}',[CustomerController::Class,'destroy'])->name('customer.delete');
-Route::get('customer/restore/{id}',[CustomerController::Class,'restore'])->name('customer.restore');
-Route::get('customer/force-delete/{id}',[CustomerController::Class,'forceDelete'])->name('customer.forcedelete');
-Route::get('/customer/edit/{id}',[CustomerController::class,'edit'])->name('customer.edit');
-Route::post('/customer/update/{id}',[CustomerController::class,'update'])->name('customer.update');
+});
+
 
 Route::get('/home',function(){
     return view ('index');
