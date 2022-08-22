@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddColumnsToCustomersTable extends Migration
+class AddDeletedAtToCustomersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,9 +14,7 @@ class AddColumnsToCustomersTable extends Migration
     public function up()
     {
         Schema::table('customers', function (Blueprint $table) {
-            $table->string('Country',50)->nullable()->after('address');
-            $table->string('State',50)->nullable()->after('address');
-            $table->boolean('Status')->default('1');
+            $table->softDeletes();
         });
     }
 
@@ -28,10 +26,7 @@ class AddColumnsToCustomersTable extends Migration
     public function down()
     {
         Schema::table('customers', function (Blueprint $table) {
-            $table->dropColumn('points');
-            $table->dropColumn('status');
-           
-
+            $table->dropSoftDeletes();
         });
     }
 }
