@@ -8,6 +8,7 @@ use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\CustomerController;
 use App\Models\Customer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,11 @@ use Illuminate\Http\Request;
 // Route::get('/course',SingleActionController::class);
 // Route::resource('/photo',PhotoController::Class);
 
+Route::get('/{lang?}',function($lang = null){
+    App::setLocale($lang);
+    return view('welcome');
+
+});
 
 Route::get('/register',[CustomerController::class,'create'])->name('customer.create');
 Route::post('/register',[CustomerController::Class,'store']);
